@@ -5,11 +5,3 @@ jest.config.js
 *.js
 
 results/**/*
-**/cdk.out
-cdk.context.json
-
-tools/data-exporter
-
-_autogen
-
-__stubs__

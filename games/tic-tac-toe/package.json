@@ -1,13 +1,21 @@
 {
-  "name": "game-board",
-  "version": "0.0.0",
-  "description": "> TODO: description",
+  "name": "tic-tac-toe",
+  "version": "0.1.0",
+  "description": "Simple console based tic-tac-toe game",
   "main": "dist/index.js",
+  "private": true,
   "scripts": {
     "clean": "rimraf results dist tsconfig.tsbuildinfo",
-    "build:watch": "tsc-watch --outDir dist --rootDir src",
     "build": "tsc --outDir dist --rootDir src",
+    "dev": "ts-node src/index.ts",
+    "start": "node .",
     "test": "jest --runInBand --passWithNoTests"
+  },
+  "dependencies": {
+    "@types/prompts": "^2.0.14",
+    "figlet": "^1.5.2",
+    "game-board": "^0.1.0",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
@@ -16,12 +24,6 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
-    "tsc-watch": "^4.6.0",
     "typescript": "^4.5.4"
-  },
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "lodash": "^4.17.21",
-    "table": "^6.7.5"
   }
 }

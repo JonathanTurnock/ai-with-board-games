@@ -3,8 +3,8 @@ import { black, blue, red } from "chalk";
 export interface GamePieceProps {
   x: number;
   y: number;
-  color: "blue" | "red";
   symbol: string;
+  color: "blue" | "red";
 }
 
 export class GamePiece {

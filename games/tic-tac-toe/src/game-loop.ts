@@ -1,15 +1,49 @@
-import { GameBoard } from "game-board";
+import prompts from "prompts";
+import { getDefaultPlayer, getNextPlayer } from "./player";
+import { TicTacToeBoard } from "./tic-tac-toe-board";
 
-/**
- * Starts a new game of Tic Tac Toe
- */
-export const onNewGame = () => {
-  let active = false;
+let active = true;
+const onExit = () => {
+  active = false;
+};
 
-  const board = new GameBoard({
-    height: 3,
-    width: 3,
-  });
+export const gameLoop = async () => {
+  active = true;
+  const board = new TicTacToeBoard();
+  console.clear();
+  board.render();
 
-  while (active) {}
+  let player = getDefaultPlayer();
+
+  const onChoice = (_, position) => {
+    board.setPosition(player, position);
+
+    console.clear();
+    board.render();
+
+    if (board.hasWon(player)) {
+      console.log(`Player ${player} Wins! 🥳`);
+      onExit();
+    } else if (!board.hasRemainingPositions) {
+      console.log("Oh No Its a Tie! 😔");
+      onExit();
+    }
+
+    player = getNextPlayer(player);
+  };
+
+  while (active) {
+    await prompts(
+      {
+        type: "select",
+        message: `Player ${player} Pick a Spot...`,
+        name: "position",
+        choices: board.availablePositions.map((it) => ({
+          title: it,
+          value: it,
+        })),
+      },
+      { onSubmit: onChoice, onCancel: onExit }
+    );
+  }
 };

@@ -1,21 +1,27 @@
 {
-  "name": "board-game-ai",
-  "description": "Implementations of Board Game AI's using traditional techniques and comparing ML implementations using TensorFlow",
+  "name": "ai-with-board-games",
+  "description": "Playing with Board Game AI",
   "private": true,
   "workspaces": [
     "packages/*",
     "games/*"
   ],
   "scripts": {
+    "prettier": "prettier --check '**/*.{js,ts,json,md,yaml,yml}'",
+    "prettier:fix": "prettier --write '**/*.{js,ts,json,md,yaml,yml}'",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "clean": "lerna run clean",
     "build": "lerna run build",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "start:tic-tac-toe": "cd games/tic-tac-toe && yarn start"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
     "lerna": "^4.0.0",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4"

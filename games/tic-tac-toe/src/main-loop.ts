@@ -1,6 +1,5 @@
-import * as console from "console";
-import * as prompts from "prompts";
-import { onNewGame } from "./on-new-game";
+import prompts from "prompts";
+import { gameLoop } from "./game-loop";
 
 let active = true;
 const onExit = () => {
@@ -9,11 +8,12 @@ const onExit = () => {
 };
 
 const mainMenuChoices = {
-  NEW_GAME: onNewGame,
+  NEW_GAME: gameLoop,
   EXIT: onExit,
 };
 
-export const main = async () => {
+export const mainLoop = async () => {
+  active = true;
   while (active) {
     await prompts(
       {

@@ -71,7 +71,7 @@ export class TicTacToeBoard {
   }
 
   /**
-   * Draws the Board to the console
+   * Clears the console and prints the board to the console
    */
   render() {
     console.clear();

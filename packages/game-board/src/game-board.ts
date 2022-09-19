@@ -1,6 +1,7 @@
 import { range } from "lodash";
 import { table } from "table";
 import { GamePiece } from "./game-piece";
+import excelColumnName from "excel-column-name";
 
 export interface GameBoardProps {
   height: number;
@@ -17,11 +18,13 @@ export class GameBoard {
   }
 
   render() {
-    const board = range(this.props.height).map((y) =>
-      range(this.props.width).map(
-        (x) => this.pieces[`${x},${y}`]?.toString() || " "
-      )
-    );
+    const board = range(this.props.height + 1).map((y) => [
+      y > 0 ? y : " ",
+      ...range(this.props.width).map((x) => {
+        if (y === 0) return excelColumnName.intToExcelCol(x + 1);
+        return this.pieces[`${x},${y - 1}`]?.toString() || " ";
+      }),
+    ]);
     console.log(
       table(board, {
         columnDefault: {

@@ -3,9 +3,9 @@
     "module": "commonjs",
     "target": "es5",
     "sourceMap": true,
-    "incremental": true
+    "incremental": true,
+    "declaration": true,
+    "esModuleInterop": true
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
