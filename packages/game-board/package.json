@@ -1,0 +1,27 @@
+{
+  "name": "game-board",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf results dist tsconfig.tsbuildinfo",
+    "build:watch": "tsc-watch --outDir dist --rootDir src",
+    "build": "tsc --outDir dist --rootDir src",
+    "test": "jest --runInBand --passWithNoTests"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/lodash": "^4.14.178",
+    "jest": "^27.4.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
+    "tsc-watch": "^4.6.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "lodash": "^4.17.21",
+    "table": "^6.7.5"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "template",
+  "version": "0.0.0",
+  "description": "Template Package to Copy and Paste",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf results dist tsconfig.tsbuildinfo",
+    "build:watch": "tsc-watch --outDir dist --rootDir src",
+    "build": "tsc --outDir dist --rootDir src",
+    "test": "jest --runInBand --passWithNoTests"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.2",
+    "tsc-watch": "^4.6.0",
+    "typescript": "^4.5.4"
+  }
+}
